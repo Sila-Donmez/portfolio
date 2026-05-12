@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #0f0b0f, #141116, #0d0b0d);
+  color: #f5eef1;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== BACKGROUND ===== */
+.background-blur {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, #9b6072aa, transparent);
+  filter: blur(160px);
+  top: -200px;
+  left: -200px;
+  z-index: -2;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(#ffffff10 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== NAV ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(15px);
+  background: rgba(10, 10, 12, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 100;
+}
+
+.logo {
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: #fff;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  color: #d9c7cf;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #c78da1;
+}
+
+/* ===== HERO (SPLIT LAYOUT) ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  gap: 50px;
+}
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-left h2 {
+  font-weight: 300;
+  color: #cbb8be;
+  font-size: 32px;
+}
+
+.dynamic-hello {
+  color: #c78da1;
+  font-weight: 500;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.hero-left h1 {
+  font-size: 75px;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #bfaeb5;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #9b6072, #6f4352);
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(155, 96, 114, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #9b6072;
+  color: #e5d5db;
+}
+
+.btn-outline:hover {
+  background: rgba(155, 96, 114, 0.1);
+}
+
+/* ===== ABOUT BOX (RIGHT SIDE) ===== */
+.hero-right {
+  flex: 1.2; /* Kutunun bulunduğu alanı biraz daha genişlettik */
+  display: flex;
+  justify-content: flex-end;
+  transform: translate(-50px, -40px); /* SİHİRLİ KISIM: 50px sola, 40px yukarı kaydırır */
+}
+
+.about-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 55px 65px; /* İç boşlukları artırarak kutuyu şişirdik */
+  border-radius: 25px;
+  max-width: 780px; /* Kutunun maksimum genişliğini epey artırdık */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.about-block {
+  margin-bottom: 30px;
+}
+
+.about-block:last-child {
+  margin-bottom: 0;
+}
+
+.about-title {
+  font-size: 21px; /* Kutunun büyüklüğüne yakışsın diye başlıklar büyüdü */
+  font-weight: 600;
+  color: #fff7fa;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.about-block p {
+  color: #bfaeb5;
+  line-height: 1.8; /* Satır aralığı ferahlatıldı */
+  font-size: 16px; /* Okunabilirliği artırmak için metin büyüdü */
+  padding-left: 35px; /* İkonların altını boş bırakmak için girinti */
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 85%;
+  margin: 80px auto;
+  padding: 60px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card h2 {
+  margin-bottom: 35px;
+  font-size: 36px;
+}
+
+/* ===== SKILLS ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.skill {
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+}
+
+.skill:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ===== PROJECTS ===== */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.project-card {
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: 0.3s;
+}
+
+.project-card h3 {
+  margin-bottom: 15px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.project-card p {
+  color: #bfaeb5;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== PORTFOLIO HEADER (GALERİ İÇİN) ===== */
+.portfolio-header {
+  text-align: center;
+  padding: 130px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio-header h1 {
+  font-size: 56px;
+  font-weight: 600;
+  color: #fff7fa;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.portfolio-header p {
+  color: #bfaeb5;
+  font-size: 18px;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  width: 85%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding-bottom: 120px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 1/1;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.9);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.1);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #9f8d94;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 140px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .hero-text h1 {
+    font-size: 52px;
+  }
+
+  .about-box {
+    text-align: left;
+  }
+
+  .navbar ul {
+    display: none; /* Mobilde menüyü gizler */
+  }
+}

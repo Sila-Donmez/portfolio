@@ -343,4 +343,66 @@ footer {
   .navbar ul {
     display: none; /* Mobilde menüyü gizler */
   }
+  /* --- MOBİL DÜZENLEMELER --- */
+@media (max-width: 768px) {
+  
+  /* 1. Navbar'ı mobilde daha derli toplu yap */
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .navbar ul {
+    margin-top: 10px;
+    gap: 15px;
+  }
+
+  /* 2. Hero (About) Kısmını Dikey Yap */
+  .hero {
+    flex-direction: column; /* Yan yana olan yapıyı alt alta getirir */
+    text-align: center;
+    padding: 80px 20px 40px;
+    height: auto; /* Sabit yükseklik varsa iptal eder */
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap; /* Butonlar sığmazsa alt alta geçer */
+  }
+
+  .about-box {
+    margin-top: 30px;
+    padding: 20px;
+  }
+
+  /* 3. Proje Kartlarını Düzenle */
+  .projects {
+    display: flex;
+    flex-direction: column; /* Kartları alt alta diz */
+    gap: 20px;
+  }
+
+  .project-card {
+    margin: 0; /* Kenar boşluklarını sıfırla */
+    padding: 25px;
+    width: 100%; /* Kart tüm genişliği kaplasın */
+    background: rgba(255, 255, 255, 0.08); /* Biraz daha belirgin yap */
+  }
+
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+
+  /* 4. Yetenekler (Skills) Izgarasını Mobilde 2 Kolon Yap */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+
 }
